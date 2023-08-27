@@ -6,11 +6,12 @@ namespace BuzzWords.ModSystem
     using Vintagestory.API.Server;
     using Vintagestory.API.MathTools;
     using Vintagestory.API.Datastructures;
+    using BuzzWords.ModConfig;
 
 
     public class BEBBuzzBeehive : BlockEntityBehavior
     {
-        private readonly int minRange = 12;
+        private readonly int buzzRadius = ModConfig.Loaded.BuzzRadius;
 
         public BEBBuzzBeehive(BlockEntity blockentity) : base(blockentity)
         { }
@@ -43,10 +44,10 @@ namespace BuzzWords.ModSystem
                 { return; }
 
                 var dist = Math.Max(1, this.Pos.DistanceTo(tempPos) - 2);
-                if (dist < this.minRange)
+                if (dist < this.buzzRadius)
                 {
-                    var zCount = (int)(this.minRange - dist);
-                    zCount = this.LimitInclusive(zCount, 3, 3 + this.minRange);
+                    var zCount = (int)(this.buzzRadius - dist);
+                    zCount = this.LimitInclusive(zCount, 3, 3 + this.buzzRadius);
                     var splr = player as IServerPlayer;
                     if (splr == null)
                     { return; }
