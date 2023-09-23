@@ -12,6 +12,8 @@ namespace BuzzWords.ModSystem
     public class BEBBuzzBeehive : BlockEntityBehavior
     {
         private readonly int buzzRadius = ModConfig.Loaded.BuzzRadius;
+        private readonly int buzzFontSize = ModConfig.Loaded.BuzzFontSize;
+        private readonly string buzzFontColor = ModConfig.Loaded.BuzzFontColor;
 
         public BEBBuzzBeehive(BlockEntity blockentity) : base(blockentity)
         { }
@@ -53,8 +55,8 @@ namespace BuzzWords.ModSystem
                     { return; }
 
                     var msg = "B " + string.Concat(Enumerable.Repeat("z Z ", zCount)) + "z . . .";
+                    msg = "<strong><font size=\"" + this.buzzFontSize + "\" color=\"" + this.buzzFontColor + "\">" + msg + "</font></strong>";
                     splr.SendIngameError("buzz", msg);
-                    //(this.Api as ICoreServerAPI).SendIngameDiscovery(splr, "buzz", msg);
                 }
             }
         }

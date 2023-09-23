@@ -4,7 +4,7 @@
   "name": "Buzzwords",
   "authors": [ "SpearAndFang" ],
   "description": "Text alert when a beehive is nearby",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "dependency": {
     "game": ""
   }
