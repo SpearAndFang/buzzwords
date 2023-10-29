@@ -41,7 +41,7 @@ namespace BuzzWords.ModSystem
                 if (player?.Entity?.ServerPos == null)
                 { return; }
 
-                var tempPos = new BlockPos((int)player.Entity?.Pos.X, (int)player.Entity?.Pos.Y, (int)player.Entity?.Pos.Z);
+                var tempPos = new BlockPos((int)player.Entity?.Pos.X, (int)player.Entity?.Pos.Y, (int)player.Entity?.Pos.Z, 0);
                 if (tempPos == null)
                 { return; }
 
